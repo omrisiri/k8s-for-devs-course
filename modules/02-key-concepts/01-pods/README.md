@@ -1,9 +1,6 @@
 # Useful commands & links
 
 Pod YAML examples:
-https://github.com/kubernetes/contrib/blob/master/apparmor/loader/example-pod.yaml
-
-Another example:
 
 ```
 apiVersion: v1
