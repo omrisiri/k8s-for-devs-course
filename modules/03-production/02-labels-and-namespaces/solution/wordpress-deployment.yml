@@ -1,5 +1,5 @@
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wp
@@ -8,6 +8,9 @@ metadata:
   namespace: frontend
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: wp
   template:
     metadata:
       labels:

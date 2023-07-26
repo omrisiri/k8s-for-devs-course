@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: drinks
@@ -6,17 +6,22 @@ metadata:
 #    ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  ingressClassName: nginx
   rules:
   - host: pepsi.cooldrinks.com
     http:
       paths:
       - backend:
-          serviceName: pepsi-nginx
-          servicePort: 80
+          service:
+            name: pepsi-nginx
+            port:
+              number: 80
   - host: cola.cooldrinks.com
     http:
       paths:
       - backend:
-          serviceName: cola-nginx
-          servicePort: 80
+          service:
+            name: cola-nginx
+            port:
+              number: 80
 
